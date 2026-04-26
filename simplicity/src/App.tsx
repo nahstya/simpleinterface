@@ -58,7 +58,7 @@ const BottomNav = ({ active, onChange }: { active: Screen; onChange: (s: Screen)
   const isNavigable = active === 'HOME' || active === 'NOTIFICATIONS' || active === 'SETTINGS';
   
   return (
-    <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-24 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/20 px-8 pb-4">
+    <nav className="absolute bottom-0 left-0 w-full z-50 flex justify-around items-center h-24 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/20 px-8 pb-4">
       <button 
         onClick={() => onChange('HOME')}
         className={`flex flex-col items-center gap-1 transition-all duration-300 ${active === 'HOME' || active === 'ROOM_DETAILS' || active === 'BRIGHTNESS' ? 'text-primary scale-110' : 'text-outline/50 hover:text-outline'}`}
@@ -85,7 +85,7 @@ const BottomNav = ({ active, onChange }: { active: Screen; onChange: (s: Screen)
 };
 
 const Header = ({ title, left, right }: { title: string; left?: React.ReactNode; right?: React.ReactNode }) => (
-  <header className="fixed top-0 left-0 w-full z-50 h-20 bg-surface flex items-center justify-between px-8 border-b border-surface-container-low">
+  <header className="absolute top-0 left-0 w-full z-50 h-20 bg-surface flex items-center justify-between px-8 border-b border-surface-container-low">
     <div className="flex-1 flex justify-start">{left}</div>
     <h1 className="font-headline font-bold uppercase text-sm tracking-tighter text-center">{title}</h1>
     <div className="flex-1 flex justify-end">{right}</div>
