@@ -560,7 +560,7 @@ export default function App() {
               ))}
             </div>
             
-            <div className="fixed bottom-32 right-12 z-40 opacity-5 pointer-events-none">
+            <div className="absolute bottom-32 right-12 z-40 opacity-5 pointer-events-none">
               <span className="font-headline text-[12rem] font-black leading-none">X</span>
             </div>
           </motion.div>
