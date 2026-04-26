@@ -623,13 +623,15 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-surface selection:bg-primary selection:text-white">
+  <div className="relative h-screen overflow-hidden bg-surface selection:bg-primary selection:text-white">
+    <div className="h-full overflow-y-auto overflow-x-hidden pb-24">
       <AnimatePresence mode="wait">
         <div key={screen}>
           {renderScreen()}
         </div>
       </AnimatePresence>
-      <BottomNav active={screen} onChange={navigateTo} />
     </div>
-  );
+    <BottomNav active={screen} onChange={navigateTo} />
+  </div>
+);
 }
