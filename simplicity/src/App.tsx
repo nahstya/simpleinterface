@@ -623,15 +623,24 @@ export default function App() {
   };
 
   return (
-  <div className="relative h-screen overflow-hidden bg-surface selection:bg-primary selection:text-white">
-    <div className="h-full overflow-y-auto overflow-x-hidden pb-24">
-      <AnimatePresence mode="wait">
-        <div key={screen}>
-          {renderScreen()}
-        </div>
-      </AnimatePresence>
+    <div className="h-full bg-surface selection:bg-primary selection:text-white relative overflow-hidden">
+      {/* Контейнер для скролла */}
+      <div className="h-full overflow-y-auto no-scrollbar pb-32">
+        <AnimatePresence mode="wait">
+          <motion.div 
+            key={screen}
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -5 }}
+            transition={{ duration: 0.2 }}
+          >
+            {renderScreen()}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Навигация — за пределами скролла, чтобы всегда была снизу */}
+      <BottomNav active={screen} onChange={navigateTo} />
     </div>
-    <BottomNav active={screen} onChange={navigateTo} />
-  </div>
-);
+  );
 }
