@@ -32,36 +32,31 @@
   display: none;
 }
 
-/* убираем стандартные отступы */
+/* Вставь это во второй и третий index.css */
 body {
   margin: 0;
-  background: #111; /* фон вокруг "телефона" */
+  background: #111; /* Темный фон вокруг телефона */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
-/* Основной контейнер-телефон */
 #root {
   width: 375px;
   height: 812px;
-  margin: 20px auto; /* добавим немного отступа сверху для десктопа */
   background: white;
   position: relative;
-  overflow: hidden; /* обрезаем всё, что выходит за границы "трубки" */
-  border-radius: 40px; /* добавим скругления как у смартфона */
+  overflow: hidden; /* Обрезаем всё, что вылетает за границы трубки */
+  border-radius: 40px;
   box-shadow: 0 0 50px rgba(0,0,0,0.5);
 }
 
-/* Обертка для вашего контента (всех экранов) */
-.scrollable-content {
-  width: 100%;
-  height: 100%;
-  overflow-y: auto; /* разрешаем вертикальный скролл */
-  padding-bottom: 100px; /* ВАЖНО: отступ снизу, чтобы контент не перекрывался навигацией */
-  
-  /* Прячем дефолтный скроллбар, чтобы выглядело как в приложении */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
+/* Добавь этот класс для скрытия полосы прокрутки, но сохранения самой функции */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
-
-.scrollable-content::-webkit-scrollbar { 
-  display: none;  /* Safari and Chrome */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
