@@ -569,7 +569,7 @@ export default function App() {
       case 'CONSTRUCTOR':
         const currentAuto = automations[selectedAutomation];
         return (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32 px-8 pb-40 max-w-4xl mx-auto">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="pt-32 px-6 pb-40 w-full max-w-full overflow-x-hidden">
             <Header 
               title="Конструктор" 
               left={<button onClick={() => navigateTo('AUTOMATIONS')} className="p-2"><ArrowLeft size={20} /></button>}
@@ -581,26 +581,29 @@ export default function App() {
               </h1>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 bg-surface-container-low">
-              <div className="p-12 md:p-16 border-b md:border-b-0 md:border-r border-outline-variant/10 min-h-[300px] flex flex-col justify-between hover:bg-surface-container-lowest transition-colors duration-500">
-                <div>
-                  <span className="font-headline text-[9px] tracking-[0.3em] text-outline uppercase font-bold">Триггер</span>
-                  <h3 className="font-headline text-2xl font-light uppercase mt-6 leading-tight whitespace-pre-line">
-                    {currentAuto.trigger}
-                  </h3>
-                </div>
-                <div className="flex justify-end opacity-20">{currentAuto.triggerIcon}</div>
-              </div>
-              <div className="p-12 md:p-16 min-h-[300px] flex flex-col justify-between hover:bg-surface-container-lowest transition-colors duration-500">
-                <div>
-                  <span className="font-headline text-[9px] tracking-[0.3em] text-outline uppercase font-bold">Действие</span>
-                  <h3 className="font-headline text-2xl font-light uppercase mt-6 leading-tight whitespace-pre-line">
-                    {currentAuto.action}
-                  </h3>
-                </div>
-                <div className="flex justify-end opacity-20">{currentAuto.actionIcon}</div>
-              </div>
-            </div>
+            <div className="grid grid-cols-2 gap-0 w-full border-t border-b border-outline-variant">
+  {/* Левая колонка (Триггер) */}
+  <div className="flex flex-col p-6 border-r border-outline-variant min-w-0">
+    <span className="text-[10px] tracking-[0.2em] uppercase text-secondary mb-8">Триггер</span>
+    <div className="flex-1">
+      <h3 className="text-xl leading-tight font-medium break-words">
+        {currentAuto.trigger}
+      </h3>
+    </div>
+    <div className="mt-4 opacity-20">{currentAuto.triggerIcon}</div>
+  </div>
+
+  {/* Правая колонка (Действие) */}
+  <div className="flex flex-col p-6 min-w-0">
+    <span className="text-[10px] tracking-[0.2em] uppercase text-secondary mb-8">Действие</span>
+    <div className="flex-1">
+      <h3 className="text-xl leading-tight font-medium break-words">
+        {currentAuto.action}
+      </h3>
+    </div>
+    <div className="mt-4 opacity-20">{currentAuto.actionIcon}</div>
+  </div>
+</div>
             
             <div className="mt-32 pt-12 border-t border-outline-variant/30 flex justify-between">
               <div>
