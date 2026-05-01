@@ -576,7 +576,7 @@ export default function App() {
               right={<button className="p-2"><MoreVertical size={20} /></button>}
             />
             <div className="mb-24">
-              <h1 className="font-headline text-[18vw] sm:text-7xl font-extrabold uppercase leading-[0.85] tracking-tighter break-words max-w-min">
+              <h1 className="font-headline text-[min(14vw,4rem)] font-extrabold uppercase leading-[0.85] tracking-tighter whitespace-pre-line break-keep max-w-full">
                 {currentAuto.name}
               </h1>
             </div>
